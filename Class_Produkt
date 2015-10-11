@@ -1,0 +1,102 @@
+class Produkt
+	@kategorie[]
+	@error = "Wystapil blad!"
+
+	def szukaj_if(x,y[])
+		y.each do |i|
+		if x == y[i]
+			return true
+		end
+		retrn false
+	end
+
+	szukaj_n(x,y[])
+		y.each do |i|
+			if x == y[i]
+				return i
+			end
+		end
+		return "Error array lub szukany wyraz nie istnieje"
+	end
+
+	def dodaj_kategorie(nazwa)
+		if szukaj_if(nazwa,@kategorie)
+			puts "Kategoria o tej nazwie juz istnieje!"
+		else
+			@kategorie.push(nazwa)
+		end
+	end
+
+	def dodaj_produkt(kat,nazwa_p,ilosc_p,cena_p=0)
+		if szukaj_if (kat,@kategorie)
+			id_k = szukaj_n (kat,@kategorie)
+			#szukanie produktu
+			if szukaj_if(nazwa_p,@kategorie[id_k])
+				#dodaj do produktu
+				id_p = szukaj_n(nazwa_p,id_k)
+				if id_p "cena" == cena_p
+					"ilosc" += ilosc_p
+				elsif cena_p == 0
+					"ilosc" += ilosc_p
+				else
+					print "Cenna jest inna zastapic stara? (Y/N)"
+					c = gets.chomp.downcase
+					case c
+					when 'y'
+						cena = cena_p
+						ilocs += ilosc_p
+					when 'n'
+						ilocs += ilosc_p
+					else
+						@error
+					end
+				end
+			else
+				#utwurz produkt
+				@katalog[id_k].push nazwa_p{"nazwa" => nazwa_p
+										"cena" => cena_p
+										"ilosc" => ilosc_p}
+			end
+		else
+			puts "Nie ma takiej kategorji"
+		end
+	end
+
+	def usun_kategorie(kat)
+		if szukaj_if (kat,@kategorje)
+
+			id_k = szukaj_n(kat,@kategorje)
+			@kategorje.delete_at(id_k)
+		else
+			print "Error nie ma takiej kategorji!"
+		end
+	end
+
+	def usun_produkt(nazwa_p,kat)
+		if szukaj_if(kat,@kategorje)
+		id_k = szukaj_n(kat,@kategorje)
+			if szukaj_if(nazwa_p,@kategorje[id_k])
+			id_p = szukaj_n(nazwa_p,@kategorje[id_k])
+			@kategorje.delate_at(id_k)(id_p)
+			end
+			print "Error nie ma produktu!"
+		end
+		print "Error nie ma kategorji!"
+	end
+
+	def show
+		#pokazuje
+		#
+		#Kategorja
+		#	produkt 	ilosc		cena
+		#	produkt 	ilosc		cena
+		#	produkt 	ilosc		cena
+		#Kategorja
+		#	produkt 	ilosc		cena
+		#	produkt 	ilosc		cena
+		#
+		print 
+
+
+	end
+end
