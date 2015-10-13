@@ -11,9 +11,9 @@ class Produkt
 		return "Error szukana wartosc nie istnieje!"
 	end
 
-	def czy_i(arr[],n)
-		arr.each do |x|
-			if arr[x] == n
+	def czy_i(arra[],n)
+		arra.each do |x|
+			if arra[x] == n
 				return true
 			end
 		end
@@ -21,8 +21,8 @@ class Produkt
 	end
 
 	def czy_w_kat(nazwa_p,nazwa_k)
-		for nazwa_k.arr.each do |i|
-			if nazwa_k.arr[i].name == nazwa_p
+		for nazwa_k.arra.each do |i|
+			if nazwa_k.arra[i].name == nazwa_p
 				return true
 			end
 		end
@@ -35,11 +35,13 @@ class Produkt
 	end
 
 	def dodaj_produkt(kat,nazwa_p,ilosc_p)
-		if czy_i(@kategorie[kat.arra[]],nazwa_p) == #istnieje
-			@kategorie[kat.arra[nazwa_p.ilosc]] += ilosc_p 		#@kategorie[szukaj_n(kat,@kategorie)].arra[@kategorie[szukaj_n(nazwa_p,@kategorie[szukaj_n(kat,@kategorie))].ilosc += ilosc_p
+		kat_n = szukaj_n(kat,@kategorie)
+		if czy_i(@kategorie[kat_n.arra[]],nazwa_p) == #istnieje!!!
+			pro_n = szukaj(nazwa_p,@kategorie[kat_n].arra)
+			@kategorie[kat_n].arra[pro_n].ilosc += ilosc_p
 		else
-			@kategorie[kat.arra].push = {	"name" => nazwa_p,	##@kategorie[szukaj_n(kat,@kategorie)].arra.push = {	"name" => nazwa_p,
-							"ilosc" => ilosc_p}	#							"ilosc" => iloscP}
+			@kategorie[szukaj_n(kat,@kategorie)].arra.push = {	"name" => nazwa_p,
+										"ilosc" => iloscP}
 		end
 	end
 
@@ -55,9 +57,9 @@ class Produkt
 	end
 
 	def usun_produkt(nazwa_p,nazwa_k)
-		@kategorie[nazwa_k.arra].delete_at(szukaj_n(nazwa_p,@kategorie[nazwa_k.arra])) 	#kat_n = szukaj_n(nazwa_k,@kategorie)
-												#pro_n = szukaj_n(nazwa_k,@kategorie[kat_n].arra)
-												#@kategorie[kat_n].arra.delete_at(pro_n)
+		kat_n = szukaj_n(nazwa_k,@kategorie)
+		pro_n = szukaj_n(nazwa_k,@kategorie[kat_n].arra)
+		@kategorie[kat_n].arra.delete_at(pro_n)
 	end
 
 	def pokaz
