@@ -5,30 +5,46 @@ class Product
 	@amount
 	@price
 
-	def initialize(name,amount,price)
-		@name = name
-		@amount = amount
-		@price = price
+	def initialize(name=nil,amount=nil,price=nil)
+		if name == nil && amount == nil && price == nil
+			print "Podaj nazwe : "
+			@name = gets.chomp
+			print "Podaj ilosc : "
+			@amount = gets.chomp
+			print "Podaj cene : "
+			@price = gets.chomp
+		else
+			@name = name
+			@amount = amount
+			@price = price
+		end
 		@categories = []
 	end
 
-	def add_category(cat)
+	def add_category(cat=nil)
 		#if !@categories.include?(cat) 
-			@categories << cat.capitalize
+		#	@categories << cat.capitalize
 		#else
 		#	puts "Category alredy exist!"
 		#end
 		#@categories.to_a
 		#@categories.push(cat)
-		
-		#c=@categories.to_a
-		#c << cat
-		#@categories = c
+		if cat == nil
+			print "Podaj nazwe kategorji : "
+			@categories << gets.chomp.capitalize
+			@categories.sort
+		else
+			@categories << cat.capitalize
+		end
 	end
 
-	def rm_categories(cat)
+	def rm_categories(cat=nil)
+		if cat == nil
+			print "Podaj nazwe kategorji do usuniecia : "
+			cat = gets.chomp.capitalize
+		end
 		@categories.each do |z|
-			if z == cat.capitalize
+			if z == cat
 				@categories.delete_at(z)
 			end
 		end
@@ -40,21 +56,22 @@ class Product
 	end
 
 	def show
-		print "\nNazwa : #{@name} "
-		print "Ilosc : #{@amount }"
-		print "Cena  : #{@price}\n"
+		print "\nNazwa : #{@name}"
+		print "\nIlosc : #{@amount}"
+		print "\nCena  : #{@price}\n"
 	end
 
 end
 
 
-#	a=Product.new("Oliwki","16 kg","25,00 $")
+#	a=Product.new#("Oliwki","16 kg","25,00 $")
 #	b=Product.new("Zeszyt","25 szt","5,50 $")
 #	c=Product.new("Error","13 szt","6,66 $")
 #
 #	a.add_category("Jedzenie")
-#	b.add_category("Nauka")
+#	b.add_category#("Nauka")
 #	b.add_category("Sztuka")
+#	b.add_category
 #	c.add_category("eRRor")
 #	c.add_category("BlAd")
 #	c.add_category("13")
