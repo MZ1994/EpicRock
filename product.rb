@@ -1,10 +1,4 @@
 class Product
-	#@categories = Array.new
-	@categories
-	@name
-	@amount
-	@price
-
 	def initialize(name=nil,amount=nil,price=nil)
 		if name == nil && amount == nil && price == nil
 			print "Podaj nazwe : "
@@ -22,13 +16,6 @@ class Product
 	end
 
 	def add_category(cat=nil)
-		#if !@categories.include?(cat) 
-		#	@categories << cat.capitalize
-		#else
-		#	puts "Category alredy exist!"
-		#end
-		#@categories.to_a
-		#@categories.push(cat)
 		if cat == nil
 			print "Podaj nazwe kategorji : "
 			@categories << gets.chomp.capitalize
@@ -61,24 +48,12 @@ class Product
 		print "\nCena  : #{@price}\n"
 	end
 
+
+	def sort_categories(asc==false)
+		if asc == false
+			@categories.sort
+		else
+			@categories.sort{|x,y| x <=> y}
+		end
+	end
 end
-
-
-#	a=Product.new#("Oliwki","16 kg","25,00 $")
-#	b=Product.new("Zeszyt","25 szt","5,50 $")
-#	c=Product.new("Error","13 szt","6,66 $")
-#
-#	a.add_category("Jedzenie")
-#	b.add_category#("Nauka")
-#	b.add_category("Sztuka")
-#	b.add_category
-#	c.add_category("eRRor")
-#	c.add_category("BlAd")
-#	c.add_category("13")
-
-#	a.show_categories
-#	a.show
-#	b.show_categories
-#	b.show
-#	c.show_categories
-# 	c.show
