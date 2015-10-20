@@ -1,13 +1,13 @@
-class categoris
-	def initialize(name=nul,str=nul)
-		if name.nul?
-			@name == gets.chomp
+class Category
+	def initialize(name=nil,str=nil)
+		if name.nil?
+			@name = gets.chomp
 		else
-			@name == name
+			@name = name
 		end
-		@description == str
+		@description = str
 	end
 
-	attr_reader : @name
-	attr_accessor : @description
+	attr_reader :name
+	attr_accessor :description
 end
