@@ -1,8 +1,8 @@
 class Produkt
-	@kategorie[]
+	@categories[]
 	@error = "Error!"
 
-	szukaj_n(x,y[])
+	search_n(x,y[])
 		y.each do |i|
 			if x == y[i]
 				return i
@@ -11,7 +11,7 @@ class Produkt
 		return "Error szukana wartosc nie istnieje!"
 	end
 
-	def czy_i(arra[],n)
+	def did_exist(arra[],n)
 		arra.each do |x|
 			if arra[x] == n
 				return true
@@ -20,54 +20,54 @@ class Produkt
 		return false
 	end
 
-	def czy_w_kat(nazwa_p,nazwa_k)
-		for nazwa_k.arra.each do |i|
-			if nazwa_k.arra[i].name == nazwa_p
+	def did_in_catego(name_of_p,name_of_k)
+		for name_of_k.arra.each do |i|
+			if name_of_k.arra[i].name == name_of_p
 				return true
 			end
 		end
 		return false
 	end
 
-	def dodaj_kategorie(kat)
-		@kategorie.push(kat = {	"name" => kat,
-					"arra" => []})
+	def add_categories(catego)
+		@categories.push(catego = {	"name" => catego,
+						"arra" => []})
 	end
 
-	def dodaj_produkt(kat,nazwa_p,ilosc_p)
-		kat_n = szukaj_n(kat,@kategorie)
-		if czy_i(@kategorie[kat_n.arra[]],nazwa_p) == #istnieje!!!
-			pro_n = szukaj(nazwa_p,@kategorie[kat_n].arra)
-			@kategorie[kat_n].arra[pro_n].ilosc += ilosc_p
+	def add_produkt(catego,name_of_p,amount_of_p)
+		catego_n = search_n(catego,@categories)
+		if did_exist(@categories[catego_n.arra[]],name_of_p) == true
+			pro_n = search(name_of_p,@categories[catego_n].arra)
+			@categories[catego_n].arra[pro_n].amount += amount_of_p
 		else
-			@kategorie[szukaj_n(kat,@kategorie)].arra.push = {	"name" => nazwa_p,
-										"ilosc" => iloscP}
+			@categories[search_n(catego,@categories)].arra.push = {	"name" => name_of_p,
+										"amount" => amount_of_p}
 		end
 	end
 
-	def dodaj_kategorie(nazwa)
-		if czy_i(@kategorie,nazwa)
-			puts "Kategoria o tej nazwie juz istnieje!"
+	def add_categories(nazwa)
+		if did_i(@categories,nazwa)
+			puts "kategoegoria o tej nazwie juz istnieje!"
 		else
-			@kategorie.push(nazwa)
+			@categories.push(nazwa)
 		end
 	end
-	def usun_kategorie(nazwa_k)
-		@kategorje.delete_at(szukaj_n(nazwa_k,@kategorie))
+	def rm_categories(name_of_k)
+		@categoegorje.delete_at(search_n(name_of_k,@categories))
 	end
 
-	def usun_produkt(nazwa_p,nazwa_k)
-		kat_n = szukaj_n(nazwa_k,@kategorie)
-		pro_n = szukaj_n(nazwa_k,@kategorie[kat_n].arra)
-		@kategorie[kat_n].arra.delete_at(pro_n)
+	def rm_produkt(name_of_p,name_of_k)
+		catego_n = search_n(name_of_k,@categories)
+		pro_n = search_n(name_of_k,@categories[catego_n].arra)
+		@categories[catego_n].arra.delete_at(pro_n)
 	end
 
-	def pokaz
-		for @kategorie.each do |x|
-			print "\n#{@kategorie[x.name]}"
-			for @kategorie[x].arra.each do |i|
-				print @kategorie[x].arra[i].name
-				print @kategorie[x].arra[i].ilosc
+	def show
+		for @categories.each do |x|
+			print "\n#{@categories[x].name}"
+			for @categories[x].arra.each do |i|
+				print @categories[x].arra[i].name
+				print @categories[x].arra[i].amount
 			end
 		end
 	end
