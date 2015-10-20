@@ -5,13 +5,9 @@ class categoris
 		else
 			@name == name
 		end
-		if str.nul?
-			print "Do you wanna add description? (y/n)"
-			if gets.chomp.upcase == Y
-				@description == gets.chomp
-			end
-		else
-			@description == str
-		end
+		@description == str
 	end
+
+	attr_reader : @name
+	attr_accessor : @description
 end
