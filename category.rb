@@ -1,9 +1,9 @@
 class Category
 	def initialize(name=nil,str=nil)
 		if name.nil?
-			@name = gets.chomp
+			@name = gets.chomp.capitalize
 		else
-			@name = name
+			@name = name.capitalize
 		end
 		@description = str
 	end

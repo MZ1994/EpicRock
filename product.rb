@@ -11,7 +11,7 @@ class Product
 			print "Podaj cene : "
 			@price = gets.chomp
 		else
-			@name = name
+			@name = name.capitalize
 			@amount = amount
 			@price = price
 		end
@@ -69,4 +69,9 @@ class Product
 			@categories.sort!{|x,y| x.name <=> y.name}
 		end
 	end
+
+	attr_reader :name
+	attr_reader :amount
+	attr_reader :price
+	attr_reader :categories
 end
